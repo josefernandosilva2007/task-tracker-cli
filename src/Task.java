@@ -21,6 +21,7 @@ public class Task {
 
 
     public static class TaskBuilder {
+        private static Long cont = 0L;
         private Long id;
         private String description;
         private String status;
@@ -28,8 +29,8 @@ public class Task {
         private OffsetDateTime updatedAt;
 
 
-        public TaskBuilder id(Long id) {
-            this.id = id;
+        public TaskBuilder id() {
+            this.id = cont++;
             return this;
         }
         public TaskBuilder description(String description) {
@@ -49,6 +50,10 @@ public class Task {
             return this;
         }
 
+        public Task build() {
+            return new Task(this);
+        }
+
     }
 
 
@@ -66,6 +71,18 @@ public class Task {
     @Override
     public int hashCode() {
         return Objects.hash(id, description, status, createdAt, updatedAt);
+    }
+
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                ", status='" + status + '\'' +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                '}';
     }
 
     public Long getId() {
