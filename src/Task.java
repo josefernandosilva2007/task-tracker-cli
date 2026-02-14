@@ -2,62 +2,23 @@ import java.time.OffsetDateTime;
 import java.util.Objects;
 
 public class Task {
-    private Long id;
+    private static int lastId = 0;
+    private int id;
     private String description;
-    private String status;
+    private Status status;
     private OffsetDateTime createdAt;
     private OffsetDateTime updatedAt;
 
     public Task(){}
 
 
-    public Task(TaskBuilder builder) {
-        this.id = builder.id;
-        this.description = builder.description;
-        this.status = builder.status;
-        this.createdAt = builder.createdAt;
-        this.updatedAt = builder.updatedAt;
+    public Task(String description) {
+        this.id = lastId++;
+        this.description = description;
+        this.status = Status.TODO;
+        this.createdAt = OffsetDateTime.now();
+        this.updatedAt = OffsetDateTime.now();
     }
-
-
-    public static class TaskBuilder {
-        private static Long cont = 0L;
-        private Long id;
-        private String description;
-        private String status;
-        private OffsetDateTime createdAt;
-        private OffsetDateTime updatedAt;
-
-
-        public TaskBuilder id() {
-            this.id = cont++;
-            return this;
-        }
-        public TaskBuilder description(String description) {
-            this.description = description;
-            return this;
-        }
-        public TaskBuilder status(String status) {
-            this.status = status;
-            return this;
-        }
-        public TaskBuilder createdAt(OffsetDateTime createdAt) {
-            this.createdAt = createdAt;
-            return this;
-        }
-        public TaskBuilder updatedAt(OffsetDateTime updatedAt) {
-            this.updatedAt = updatedAt;
-            return this;
-        }
-
-        public Task build() {
-            return new Task(this);
-        }
-
-    }
-
-
-
 
 
 
@@ -85,11 +46,11 @@ public class Task {
                 '}';
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -101,11 +62,11 @@ public class Task {
         this.description = description;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 
