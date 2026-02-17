@@ -1,10 +1,14 @@
 public class TaskCli {
     public static void main(String[] args) {
         TaskService taskService = new TaskService();
+        String command = args[0];
+        switch (command) {
+            case "add":
+                taskService.addTask(args[1]);
+                break;
+            default:
+                break;
+        }
 
-
-       if (args[0].equals("add")) {
-           taskService.addTask(args[1]);
-       }
-    }
-}
+        taskService.saveTasks();
+}}
