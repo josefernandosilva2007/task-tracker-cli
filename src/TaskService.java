@@ -4,6 +4,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 public class TaskService implements TaskRepository {
@@ -78,12 +79,14 @@ public class TaskService implements TaskRepository {
 
     @Override
     public void remove(String id) {
-
+        Task task = listById(id).orElseThrow(() -> new RuntimeException("Task with id: " + id + " not found"));
+        tasks.remove(task);
+        System.out.println("Task with id: " + task.getId() + " removed");
     }
 
     @Override
-    public Task listById(String id) {
-        return null;
+    public Optional<Task> listById(String id) {
+        return tasks.stream().filter(task -> task.getId() == Integer.parseInt(id)).findFirst();
     }
 
     @Override

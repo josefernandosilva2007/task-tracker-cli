@@ -6,9 +6,13 @@ public class TaskCli {
             case "add":
                 taskService.addTask(args[1]);
                 break;
+            case "remove":
+                taskService.remove(args[1]);
+                break;
             default:
                 break;
         }
 
         taskService.saveTasks();
-}}
+    }
+}
