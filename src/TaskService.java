@@ -9,7 +9,7 @@ import java.util.Set;
 
 public class TaskService implements TaskRepository {
     private final Path PATH_FILE = Paths.get("tasks.json");
-    private List<Task> tasks;
+    private final List<Task> tasks;
 
 
     TaskService(){
@@ -29,14 +29,17 @@ public class TaskService implements TaskRepository {
             String jsonContent = Files.readString(PATH_FILE);
             String[] taskList = jsonContent.replace("[", "").replace("]", "").split("},");
 
-            for(String task: taskList){
-                if(!task.endsWith("}")){
-                    task = task + "}";
-                    taskJson.add(Task.fromJson(task));
-                } else {
-                    taskJson.add(Task.fromJson(task));
+            for (String task : taskList) {
+                String trimmedTask = task.trim();
 
+                if (trimmedTask.isEmpty() || trimmedTask.equals("[") || trimmedTask.equals("]")) {
+                    continue;
                 }
+                if (!trimmedTask.endsWith("}")) {
+                    trimmedTask = trimmedTask + "}";
+                }
+
+                taskJson.add(Task.fromJson(trimmedTask));
             }
         }catch (IOException e){
             e.printStackTrace();
