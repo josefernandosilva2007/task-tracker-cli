@@ -16,5 +16,11 @@ public interface TaskRepository {
 
     public List<Task> listAll();
 
+    public void markAsInProgress(String id);
+
+    public void markAsDone(String id);
+
+    public void markAsToDo(String id);
+
 
 }

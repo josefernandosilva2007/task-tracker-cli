@@ -54,10 +54,6 @@ public class TaskService implements TaskRepository {
         System.out.println("Task added with id: " + save.getId());
     }
 
-
-
-
-
     @Override
     public void saveTasks() {
         StringBuilder sb = new StringBuilder();
@@ -96,4 +92,24 @@ public class TaskService implements TaskRepository {
     public List<Task> listAll() {
         return tasks;
     }
+
+    @Override
+    public void markAsInProgress(String id) {
+        Task task = listById(id).orElseThrow(() -> new RuntimeException("Task with id: " + id + " not found"));
+        task.markAsInProgress();
+    }
+
+    @Override
+    public void markAsDone(String id) {
+        Task task = listById(id).orElseThrow(() -> new RuntimeException("Task with id: " + id + " not found"));
+        task.markAsDone();
+    }
+
+    @Override
+    public void markAsToDo(String id) {
+        Task task = listById(id).orElseThrow(() -> new RuntimeException("Task with id: " + id + " not found"));
+        task.markAsToDo();
+    }
+
+
 }

@@ -21,6 +21,11 @@ public class Task {
         this.updatedAt = OffsetDateTime.now();
     }
 
+    public int setId(int id) {
+        this.id = id;
+        return id;
+    }
+
     public int getId() {
         return id;
     }
@@ -89,6 +94,19 @@ public class Task {
             return task;
     }
 
+
+    public void markAsDone() {
+        status = Status.DONE;
+        this.updatedAt = OffsetDateTime.now();
+    }
+    public void markAsInProgress() {
+        status = Status.IN_PROGRESS;
+        this.updatedAt = OffsetDateTime.now();
+    }
+    public void markAsToDo() {
+        status = Status.TODO;
+        this.updatedAt = OffsetDateTime.now();
+    }
 
 }
 
