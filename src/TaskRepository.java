@@ -12,6 +12,8 @@ public interface TaskRepository {
 
     public void remove(String id);
 
+    public void updateTask(String id, String description);
+
     public Optional<Task> listById(String id);
 
     public List<Task> listAll();

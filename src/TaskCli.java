@@ -9,6 +9,12 @@ public class TaskCli {
             case "remove":
                 taskService.remove(args[1]);
                 break;
+            case "update":
+                taskService.updateTask(args[1], args[2]);
+                break;
+            case "mark-in-progress":
+                taskService.markAsInProgress(args[1]);
+                break;
             default:
                 break;
         }

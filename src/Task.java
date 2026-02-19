@@ -26,6 +26,11 @@ public class Task {
         return id;
     }
 
+    public OffsetDateTime setCreatedAt(OffsetDateTime createdAt) {
+       this.createdAt = createdAt;
+       return createdAt;
+    }
+
     public int getId() {
         return id;
     }

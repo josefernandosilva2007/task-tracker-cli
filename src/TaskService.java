@@ -77,6 +77,18 @@ public class TaskService implements TaskRepository {
     }
 
     @Override
+    public void updateTask(String id, String description){
+        Task task = listById(id).orElseThrow(() -> new RuntimeException("Task with id: " + id + " does not exist"));
+        Task save = new Task(description);
+        save.setId(task.getId());
+        save.setCreatedAt(task.getCreatedAt());
+
+        tasks.remove(task);
+        tasks.add(save);
+        System.out.println("Task updated with id: " + save.getId());
+    }
+
+    @Override
     public void remove(String id) {
         Task task = listById(id).orElseThrow(() -> new RuntimeException("Task with id: " + id + " not found"));
         tasks.remove(task);
