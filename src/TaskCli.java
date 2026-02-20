@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class TaskCli {
     public static void main(String[] args) {
         TaskService taskService = new TaskService();
@@ -15,6 +17,14 @@ public class TaskCli {
             case "mark-in-progress":
                 taskService.markAsInProgress(args[1]);
                 break;
+            case "mark-in-done":
+                taskService.markAsDone(args[1]);
+                break;
+            case "list-tasks":
+                List<Task> tasks = taskService.listAll();
+                for(Task task : tasks) {
+                    System.out.println(task.toString());
+                }
             default:
                 break;
         }

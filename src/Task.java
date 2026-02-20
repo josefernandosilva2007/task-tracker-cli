@@ -53,13 +53,11 @@ public class Task {
 
     @Override
     public String toString() {
-        return "Task{" +
-                "id=" + id +
+        return "id=" + id +
                 ", description='" + description + '\'' +
                 ", status='" + status + '\'' +
                 ", createdAt=" + createdAt +
-                ", updatedAt=" + updatedAt +
-                '}';
+                ", updatedAt=" + updatedAt;
     }
 
     public String toJson() {
