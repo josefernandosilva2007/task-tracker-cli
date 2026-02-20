@@ -16,9 +16,9 @@ public class TaskCli {
                 }
                 taskService.addTask(args[1]);
                 break;
-            case "remove":
+            case "delete":
                 if(args.length > 2){
-                    System.out.println("Error: for remove use \"remove {id}\" ");
+                    System.out.println("Error: for delete use \"delete {id}\" ");
                     break;
                 }
                 if(!validateInt(args[1])){
@@ -26,7 +26,7 @@ public class TaskCli {
                     break;
                 }
 
-                taskService.remove(args[1]);
+                taskService.delete(args[1]);
                 break;
             case "update":
                 if(args.length > 3){

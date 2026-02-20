@@ -86,7 +86,7 @@ public class TaskService implements TaskRepository {
     }
 
     @Override
-    public void remove(String id) {
+    public void delete(String id) {
         Task task = listById(id).orElseThrow(() -> new RuntimeException("Task with id: " + id + " not found"));
         tasks.remove(task);
         System.out.println("Task with id: " + task.getId() + " removed");

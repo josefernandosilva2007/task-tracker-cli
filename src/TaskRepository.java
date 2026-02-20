@@ -10,7 +10,7 @@ public interface TaskRepository {
 
     public void saveTasks();
 
-    public void remove(String id);
+    public void delete(String id);
 
     public void updateTask(String id, String description);
 
