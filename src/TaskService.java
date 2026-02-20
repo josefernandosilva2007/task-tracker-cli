@@ -2,10 +2,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 public class TaskService implements TaskRepository {
     private final Path PATH_FILE = Paths.get("tasks.json");
@@ -98,6 +95,21 @@ public class TaskService implements TaskRepository {
     @Override
     public Optional<Task> listById(String id) {
         return tasks.stream().filter(task -> task.getId() == Integer.parseInt(id)).findFirst();
+    }
+
+    @Override
+    public List<Task> listByStatus(String statusString) {
+        List<Task> listByStatus = new ArrayList<>();
+        Status status = Status.fromString(statusString);
+
+        for(Task task : tasks){
+            if(task.getStatus() == status){
+                listByStatus.add(task);
+            }
+        }
+
+
+        return listByStatus;
     }
 
     @Override

@@ -1,8 +1,20 @@
 public enum Status {
-    TODO ("To Do"),
-    IN_PROGRESS ("In Progress"),
-    DONE ("Done");
+    TODO ("todo"),
+    IN_PROGRESS ("in-progress"),
+    DONE ("done");
 
-    Status(String status) {
+    private final String value;
+
+    Status(String value) {
+        this.value = value;
+    }
+
+    public static Status fromString(String text) {
+        for (Status s : Status.values()) {
+            if (s.value.equalsIgnoreCase(text)) {
+                return s;
+            }
+        }
+        throw new IllegalArgumentException("Status desconhecido: " + text);
     }
 }

@@ -15,6 +15,8 @@ public interface TaskRepository {
     public void updateTask(String id, String description);
 
     public Optional<Task> listById(String id);
+    public List<Task> listByStatus(String status);
+
 
     public List<Task> listAll();
 
