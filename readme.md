@@ -18,28 +18,28 @@ java TaskCli <command> [arguments]
 ## Usage
 ````
 # Adding a new task
-java TaskCLIApp add "Buy groceries"
+java TaskCli add "Buy groceries"
 
 # Updating a task
-java TaskCLIApp update 1 "Buy groceries and cook dinner"
+java TaskCli update 1 "Buy groceries and cook dinner"
 
 # Deleting a task
-java TaskCLIApp delete 1
+java TaskCli delete 1
 
 # Marking a task as in progress
-java TaskCLIApp mark-in-progress 1
+java TaskCli mark-in-progress 1
 
 # Marking a task as done
-java TaskCLIApp mark-done 1
+java TaskCli mark-done 1
 
 # Listing all tasks
-java TaskCLIApp list
+java TaskCli list
 # Output: List of all tasks
 
 # Listing tasks by status
-java TaskCLIApp list todo
-java TaskCLIApp list in-progress
-java TaskCLIApp list done
+java TaskCli list todo
+java TaskCli list in-progress
+java TaskCli list done
 ````
 
 
