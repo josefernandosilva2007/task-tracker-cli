@@ -4,7 +4,7 @@ A simple command-line interface (CLI) application for managing tasks. You can ad
 1. **Clone this repo**
 ```
 git clone https://github.com/josefernandosilva2007/task-tracker-cli.git
-cd task-tracker/src
+cd task-tracker-cli/src
 ```
 2. **Compile the source code**
 ```
