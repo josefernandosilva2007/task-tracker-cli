@@ -87,10 +87,6 @@ public class TaskCli {
                 }
                 break;
             case "list":
-                if(args.length > 1){
-                    System.out.println("Error: type only status");
-                    break;
-                }
                 if(!validateStatus(args[1])){
                     System.out.println("Error: use only status: \"in-progress\" \"done\" \"todo\"");
                     break;
