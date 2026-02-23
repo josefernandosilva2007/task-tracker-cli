@@ -33,7 +33,7 @@ java TaskCli mark-in-progress 1
 java TaskCli mark-done 1
 
 # Listing all tasks
-java TaskCli list
+java TaskCli list-tasks
 # Output: List of all tasks
 
 # Listing tasks by status
